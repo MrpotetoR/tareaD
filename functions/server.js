@@ -205,7 +205,7 @@ async function main() {
     }
   });
 
-  server.listen(port, "127.0.0.1", () => {
+  server.listen(port, "0.0.0.0", () => {
     console.log(`TrabajoEscolar backend en http://127.0.0.1:${port}/`);
     console.log("Almacenamiento: MySQL");
   });
