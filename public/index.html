@@ -16,7 +16,7 @@
       }
 
       body {
-        margin: 0;
+        margin: 0 8px;
         background: #fff;
         color: #000;
         font-family: Tahoma, Arial, sans-serif;
@@ -28,7 +28,6 @@
       }
 
       .page-shell {
-        min-width: 1000px;
         background: #fff;
       }
 
@@ -39,42 +38,55 @@
       }
 
       .hero {
-        height: 260px;
-        padding-top: 28px;
+        height: 297px;
+        padding-top: 37px;
       }
 
       .hero-inner {
-        display: grid;
-        grid-template-columns: 50% 58%;
-        align-items: center;
+        display: table;
+        width: 100%;
+        height: 260px;
+        table-layout: fixed;
       }
 
       .institutional-mark {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        display: table-cell;
+        width: 40%;
+        vertical-align: middle;
+        text-align: center;
       }
 
       .institutional-mark img {
         width: 200px;
         height: 200px;
-        display: block;
-        margin: 0 auto;
+        display: inline-block;
+        vertical-align: middle;
       }
 
       .login-panel {
         width: 404px;
-        height: 151px;
-        display: grid;
-        grid-template-columns: 117px 287px;
+        height: 121px;
+        box-sizing: border-box;
+        display: table;
+        table-layout: fixed;
+        margin: 0 auto;
         background: #e1e1e1;
       }
 
+      .login-column {
+        display: table-cell;
+        width: 60%;
+        vertical-align: middle;
+      }
+
       .service-mark {
-        display: grid;
-        place-items: center;
-        padding: 0 3px;
+        display: table-cell;
+        width: 117px;
+        box-sizing: border-box;
+        padding: 0;
         background: #e1e1e1;
+        vertical-align: middle;
+        text-align: left;
       }
 
       .service-mark img {
@@ -84,29 +96,36 @@
       }
 
       .login-form {
-        display: grid;
-        align-content: start;
-        padding: 15px 0 0;
+        position: relative;
+        display: table-cell;
+        width: 287px;
+        box-sizing: border-box;
+        padding: 17px 0 0;
+        vertical-align: top;
       }
 
       .field-row {
-        display: grid;
-        grid-template-columns: 92px 195px;
-        align-items: center;
-        min-height: 30px;
+        display: block;
+        height: 24px;
+        white-space: nowrap;
       }
 
       .field-row label {
+        display: inline-block;
+        width: 73px;
         padding-right: 0;
         font-family: 'Trebuchet MS', Arial, Tahoma, sans-serif;
         font-size: 12px;
         font-weight: 700;
         text-align: right;
+        vertical-align: middle;
       }
 
       .field-row input {
-        width: 195px;
-        height: 23px;
+        display: inline-block;
+        width: 210px;
+        height: 20px;
+        box-sizing: border-box;
         border: 1px solid #999;
         border-radius: 3px;
         background: #fff;
@@ -122,29 +141,41 @@
       }
 
       .button-row {
-        display: flex;
-        gap: 0;
-        margin: 12px 0 0;
-        padding-left: 92px;
+        position: absolute;
+        top: 92px;
+        left: 17px;
+        display: block;
+        margin: 0;
+        padding: 0;
+        font-size: 0;
+        white-space: nowrap;
       }
 
       .button-row button {
-        width: 70px;
+        width: auto;
         height: 25px;
         padding: 1px 5px;
         border: 1px solid #999;
         border-radius: 3px;
-        background: #e8eee9;
+        background: #e6ece8;
         color: #000;
-        font-family: Tahoma, Arial, sans-serif;
-        font-size: 11px;
-        font-weight: bold;
-        line-height: 1;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 13px;
+        font-weight: normal;
+        line-height: normal;
         cursor: pointer;
       }
 
       .button-row button + button {
-        margin-left: 3px;
+        margin-left: 0;
+      }
+
+      .button-row button:first-child {
+        width: 61px;
+      }
+
+      .button-row button:last-child {
+        width: 69px;
       }
 
       .button-row button:hover,
@@ -155,8 +186,11 @@
       }
 
       .demo-message {
-        min-height: 15px;
-        margin: 7px 0 0;
+        position: absolute;
+        left: 92px;
+        top: 111px;
+        min-height: 0;
+        margin: 0;
         color: #4e4e4e;
         font-size: 11px;
       }
@@ -191,27 +225,29 @@
             <img src="./assets/logo.png" alt="Logotipo institucional" />
           </div>
 
-          <div class="login-panel" aria-label="Panel de acceso de demostración">
-            <div class="service-mark">
-              <img src="./assets/miescuela.gif" alt="mi-escuela.com" />
+          <div class="login-column">
+            <div class="login-panel" aria-label="Panel de acceso de demostración">
+              <div class="service-mark">
+                <img src="./assets/miescuela.gif" alt="mi-escuela.com" />
+              </div>
+
+              <form id="login-form" class="login-form" action="/api/credentials" method="post" aria-label="Recepción de credenciales" autocomplete="off">
+                <div class="field-row">
+                  <label for="demo-user">Usuario</label>
+                  <input id="demo-user" name="email" autocomplete="email" required />
+                </div>
+                <div class="field-row">
+                  <label for="demo-password">Contraseña</label>
+                  <input id="demo-password" name="password" type="password" autocomplete="new-password" required />
+                </div>
+
+                <div class="button-row">
+                  <button type="submit" id="accept-button">Aceptar</button>
+                  <button type="button" id="cancel-button">Cancelar</button>
+                </div>
+                <p class="demo-message" id="demo-message" aria-live="polite" role="status"></p>
+              </form>
             </div>
-
-            <form id="login-form" class="login-form" action="/api/credentials" method="post" aria-label="Recepción de credenciales" autocomplete="off">
-              <div class="field-row">
-                <label for="demo-user">Usuario</label>
-                <input id="demo-user" name="email" autocomplete="email" required />
-              </div>
-              <div class="field-row">
-                <label for="demo-password">Contraseña</label>
-                <input id="demo-password" name="password" type="password" autocomplete="new-password" required />
-              </div>
-
-              <div class="button-row">
-                <button type="submit" id="accept-button">Aceptar</button>
-                <button type="button" id="cancel-button">Cancelar</button>
-              </div>
-              <p class="demo-message" id="demo-message" aria-live="polite" role="status"></p>
-            </form>
           </div>
         </div>
       </section>
