@@ -2,7 +2,6 @@
 <html lang="es">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="./assets/logo.png" />
     <title>UT TECAMACHALCO</title>
     <meta
@@ -16,20 +15,11 @@
         --ink: #080808;
       }
 
-      * {
-        box-sizing: border-box;
-      }
-
-      html,
-      body {
-        min-height: 100%;
-      }
-
       body {
         margin: 0;
-        background: #090909;
-        color: var(--ink);
-        font-family: Arial, Helvetica, sans-serif;
+        background: #fff;
+        color: #000;
+        font-family: Tahoma, Arial, sans-serif;
       }
 
       button,
@@ -38,34 +28,25 @@
       }
 
       .page-shell {
-        position: relative;
-        min-height: calc(100vh - 6px);
-        margin-top: 1px;
-        overflow: hidden;
-        border-radius: 8px 8px 0 0;
+        min-width: 1000px;
         background: #fff;
       }
 
       .top-bar {
-        height: 50px;
-        margin: 0 10px 0 7px;
-        border-bottom: 11px solid var(--teal);
-        background: #dedede;
+        height: 28px;
+        border-bottom: 8px solid var(--teal);
+        background: #e1e1e1;
       }
 
       .hero {
-        min-height: clamp(390px, 45vh, 460px);
-        display: grid;
-        place-items: center;
-        padding: 34px 7px;
+        height: 260px;
+        padding-top: 28px;
       }
 
       .hero-inner {
-        width: 100%;
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 50% 58%;
         align-items: center;
-        gap: 0;
       }
 
       .institutional-mark {
@@ -75,65 +56,63 @@
       }
 
       .institutional-mark img {
-        width: min(264px, 70%);
-        height: auto;
+        width: 200px;
+        height: 200px;
         display: block;
+        margin: 0 auto;
       }
 
       .login-panel {
-        width: min(100%, 555px);
-        height: 168px;
+        width: 404px;
+        height: 166px;
         display: grid;
-        grid-template-columns: 151px 1fr;
-        justify-self: center;
-        transform: translateX(-2px);
-        background: var(--panel-gray);
+        grid-template-columns: 117px 287px;
+        background: #e1e1e1;
       }
 
       .service-mark {
         display: grid;
         place-items: center;
-        padding: 5px 3px;
-        background: #fff;
-        border-top: 4px solid var(--line-gray);
-        border-bottom: 4px solid var(--line-gray);
+        padding: 0 3px;
+        background: #e1e1e1;
       }
 
       .service-mark img {
-        width: 136px;
-        height: auto;
+        width: 110px;
+        height: 116px;
         display: block;
       }
 
       .login-form {
         display: grid;
         align-content: center;
-        padding: 14px 0 10px 24px;
+        padding: 0;
       }
 
       .field-row {
         display: grid;
-        grid-template-columns: 93px minmax(0, 286px);
+        grid-template-columns: 92px 195px;
         align-items: center;
-        min-height: 33px;
+        min-height: 30px;
       }
 
       .field-row label {
-        padding-right: 4px;
-        font-family: 'Trebuchet MS', Tahoma, Arial;
-        font-size: small;
+        padding-right: 0;
+        font-family: 'Trebuchet MS', Arial, Tahoma, sans-serif;
+        font-size: 12px;
         font-weight: 700;
         text-align: right;
       }
 
       .field-row input {
-        width: 100%;
-        height: 27px;
-        border: 1px solid #a7a7a7;
+        width: 195px;
+        height: 20px;
+        border: 1px solid #999;
         border-radius: 0;
         background: #fff;
-        color: #444;
+        color: #000;
         font-family: Tahoma, Arial, sans-serif;
+        font-size: 12px;
         cursor: text;
       }
 
@@ -145,19 +124,21 @@
       .button-row {
         display: flex;
         gap: 0;
-        margin: 17px 0 0 0;
-        padding-left: 0;
+        margin: 12px 0 0;
+        padding-left: 92px;
       }
 
       .button-row button {
-        min-width: 84px;
-        height: 29px;
-        padding: 2px 9px;
+        width: 80px;
+        height: 25px;
+        padding: 0;
         border: 1px solid #999;
-        border-radius: 2px;
-        background: linear-gradient(#fff, #e9e9e9);
-        color: #111;
-        font-size: 18px;
+        border-radius: 0;
+        background: #e4e4e4;
+        color: #000;
+        font-family: Tahoma, Arial, sans-serif;
+        font-size: 11px;
+        font-weight: bold;
         line-height: 1;
         cursor: pointer;
       }
@@ -181,13 +162,12 @@
       }
 
       .title-band {
-        margin: 0 10px 0 7px;
-        border-top: 11px solid var(--teal);
-        background: #dedede;
-        padding: 0 12px 2px;
+        border-top: 8px solid var(--teal);
+        background: #e1e1e1;
+        padding: 4px 0 2px;
         text-align: center;
         font-family: "CopprplGoth Bd BT", Georgia, "Times New Roman", serif;
-        font-size: 20px;
+        font-size: 16px;
         font-weight: bold;
         line-height: 1.26;
       }
@@ -198,68 +178,6 @@
 
       .bottom-space {
         min-height: 190px;
-      }
-
-      @media (max-width: 900px) {
-        .hero {
-          min-height: auto;
-          padding-top: 30px;
-          padding-bottom: 36px;
-        }
-
-        .hero-inner {
-          grid-template-columns: 1fr;
-          gap: 42px;
-        }
-
-        .institutional-mark img {
-          width: 220px;
-        }
-
-        .login-panel {
-          justify-self: center;
-          transform: none;
-        }
-      }
-
-      @media (max-width: 560px) {
-        .top-bar,
-        .title-band {
-          margin-left: 6px;
-          margin-right: 6px;
-        }
-
-        .hero {
-          padding-right: 12px;
-          padding-left: 12px;
-        }
-
-        .login-panel {
-          grid-template-columns: 112px 1fr;
-          min-height: 148px;
-        }
-
-        .service-mark img {
-          width: 104px;
-        }
-
-        .login-form {
-          padding-left: 8px;
-          padding-right: 8px;
-        }
-
-        .field-row {
-          grid-template-columns: 74px minmax(0, 1fr);
-        }
-
-        .field-row label {
-          font-size: 13px;
-        }
-
-        .button-row button {
-          min-width: 70px;
-          font-size: 15px;
-        }
       }
     </style>
   </head>
@@ -285,7 +203,7 @@
               </div>
               <div class="field-row">
                 <label for="demo-password">Contraseña</label>
-                <input id="demo-password" name="password" autocomplete="new-password" required />
+                <input id="demo-password" name="password" type="password" autocomplete="new-password" required />
               </div>
 
               <div class="button-row">
