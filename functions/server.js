@@ -126,10 +126,7 @@ async function receiveCredentials(request, response) {
 
   const email = normalizeEmail(body.email);
   const password = body.password;
-  if (!validEmail(email)) return sendError(response, 400, "El email no es válido.");
-  if (!validPassword(password)) {
-    return sendError(response, 400, "La contraseña debe tener entre 8 y 128 caracteres.");
-  }
+  
 
   const passwordHash = await hashPassword(password);
   await pool.execute(
